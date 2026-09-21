@@ -1,0 +1,36 @@
+# coderkrow
+# Brand terminal theme
+# Palette: #111110 / #e8e6df / #1a595a / #00d1d4
+
+font-family = JetBrains Mono
+
+background = #111110
+foreground = #e8e6df
+
+cursor-color = #00d1d4
+cursor-text = #111110
+
+selection-background = #1a595a
+selection-foreground = #e8e6df
+
+# ANSI 16-color palette
+palette = 0=#111110
+palette = 1=#c83c3c
+palette = 2=#3bb8ba
+palette = 3=#c8b56a
+palette = 4=#2e7f80
+palette = 5=#6a8f8f
+palette = 6=#00d1d4
+palette = 7=#e8e6df
+
+palette = 8=#4a4a47
+palette = 9=#d95c5c
+palette = 10=#4ac8c9
+palette = 11=#d6c47a
+palette = 12=#3bb8ba
+palette = 13=#8bb7b7
+palette = 14=#00d1d4
+palette = 15=#f5f4f0
+
+# Keep extended ANSI colors coherent with base palette.
+palette-generate = true
