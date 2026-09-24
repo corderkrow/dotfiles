@@ -44,8 +44,29 @@ ln -sf ~/dotfiles/herdr/config.toml ~/.config/herdr/config.toml
 
 Copy the `[theme]`, `[theme.custom]`, `[theme.custom.light]`, and `[ui]`
 tables from `herdr/config.toml` into your existing
-`~/.config/herdr/config.toml`. Do not duplicate tables that already exist —
-merge their keys.
+`~/.config/herdr/config.toml`.
+
+**Do not duplicate table headers.** TOML rejects a repeated table and herdr
+falls back to defaults with `config.toml invalid; using defaults`. Every
+config here already has a `[ui]` table (`status_indicators`, `[ui.toast]`,
+…), so merge its keys into that block instead of pasting a second `[ui]`:
+
+```toml
+# existing config
+onboarding = false
+
+[ui.toast]
+delivery = "system"
+
+# keys from herdr/config.toml go here, not under a new [ui] header
+[ui]
+status_indicators = "symbols"
+accent         = "#3bb8ba"
+```
+
+Same rule for `[theme]` and `[theme.custom]`: add the missing keys to the
+existing table. A repeated header is the most common cause of the
+`invalid; using defaults` warning.
 
 ### Reload
 
@@ -64,7 +85,10 @@ herdr config check
 
 Prints diagnostics for `~/.config/herdr/config.toml`. A valid file reports
 no errors; a bad color value is rejected at startup and herdr falls back to
-a safe default with a warning.
+a safe default with a warning. A duplicate table header (usually a second
+`[ui]` from an Option B merge) produces
+`config parse error: … duplicate key 'ui' in document root`; fix the merge
+and re-run `herdr config check` until it reports `config: ok`.
 
 ## Light / dark auto-switch
 
