@@ -25,7 +25,7 @@ Built for Pop!_OS / Linux. MIT licensed. Contributions welcome.
   Oh My Zsh + Starship prompt.
 - **Consistent theme:** `coderkrow dark` palette (`#111110` / `#e8e6df` /
   `#1a595a` / `#00d1d4`) applied to Ghostty, Starship, Zed, opencode,
-  herdr, and COSMIC desktop.
+  herdr, COSMIC desktop, and Telegram Desktop.
 - **Dev-ready prompt:** Starship powerline with OS, user, directory,
   git branch/status, language runtimes (C, C++, Rust, Go, Node, PHP,
   Java, Kotlin, Haskell, Python), Docker / Conda / Pixi contexts, and time.
@@ -52,6 +52,10 @@ Built for Pop!_OS / Linux. MIT licensed. Contributions welcome.
 │   ├── themes/
 │   │   └── coderkrow.json    # opencode TUI theme
 │   └── INSTALL.md            # opencode install notes
+├── telegram/
+│   └── theme/
+│       ├── coderkrow-dark.tdesktop-theme  # Telegram Desktop theme (dark-only)
+│       └── INSTALL.md                     # Telegram install notes
 ├── opencode.json             # opencode agent config / permissions
 ├── terminal-dev-stack.md     # Full terminal stack reference (Ghostty, OMZ, zoxide, fzf, atuin)
 ├── CODE_OF_CONDUCT.md        # Contributor Covenant v2.1
@@ -75,6 +79,7 @@ terminal configuration reference.
 - [atuin](https://atuin.sh/) (optional, for synced history)
 - [Zed](https://zed.dev/) (optional, for editor theme)
 - [herdr](https://herdr.dev/) (optional, for terminal workspace theme)
+- [Telegram Desktop](https://desktop.telegram.org/) (optional, for chat theme)
 - Nerd Font (recommended: JetBrainsMono Nerd Font)
 
 ## Quick start
@@ -133,6 +138,10 @@ terminal configuration reference.
    # COSMIC theme
    # Import cosmic/coderkrow-dark.ron via COSMIC Settings → Appearance,
    # or copy to your COSMIC themes directory.
+
+   # Telegram Desktop theme
+   # Settings → Chat Settings → Theme → folder icon → import
+   # telegram/theme/coderkrow-dark.tdesktop-theme
    ```
 
 4. Enable shell integrations in `~/.zshrc`:
@@ -175,6 +184,9 @@ All themes share one palette — dark background `#111110`, surface
   built-in base; dark-only with an optional light auto-switch. See
   `herdr/INSTALL.md`.
 - **COSMIC:** `cosmic/coderkrow-dark.ron` — desktop theme.
+- **Telegram Desktop:** `telegram/theme/coderkrow-dark.tdesktop-theme` —
+  dark-only palette, teal selection and outgoing bubbles, cyan active
+  states, flat surfaces. See `telegram/theme/INSTALL.md`.
 
 To tweak: edit the palette in one theme file, mirror hex values across
 the others, keep contrast for long sessions.

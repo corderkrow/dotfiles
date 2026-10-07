@@ -1,0 +1,429 @@
+//
+// coderkrow dark — Telegram Desktop theme
+// Built from .ai/rules/brand/RULES.md
+//
+// Palette: ground #111110 (never #000), surface #1a1a18,
+// text #e8e6df (never #fff), muted #888780,
+// teal #1a595a / #2e7f80 / #3bb8ba, signal cyan #00d1d4.
+// No purple, no gradients, no shadows, flat surfaces only.
+//
+// Single-file theme: rename to .tdesktop-theme and import in
+// Settings → Chat Settings → Theme → Create a new theme.
+// See INSTALL.md for packaging with a background image.
+//
+
+// ---- base tokens -------------------------------------------------------
+COLOR_BG:             #111110;   // near-black ground (not pure black)
+COLOR_SURFACE:        #1a1a18;   // raised surface — cards, bubbles, menus
+COLOR_SURFACE_HOVER:  #20201d;   // hover background
+COLOR_SURFACE_ACTIVE: #2a2a26;   // pressed / ripple background
+COLOR_SURFACE_MAX:    #33332e;   // deepest pressed step
+
+COLOR_FG:             #e8e6df;   // warm off-white text
+COLOR_FG_OVER:        #f5f4f0;   // brightest text
+COLOR_FG_SOFT:        #b8b6ae;   // secondary / hovered subtext
+COLOR_FG_SUBTLE:      #888780;   // muted metadata
+COLOR_FG_DIM:         #6a6963;   // disabled
+
+COLOR_TEAL:           #1a595a;   // brand teal
+COLOR_TEAL_MID:       #2e7f80;   // interactive / hover
+COLOR_TEAL_LIGHT:     #3bb8ba;   // links, badges, inline accents
+COLOR_CYAN:           #00d1d4;   // signal — active states only
+
+COLOR_BORDER:         #e8e6df12; // ink hairline (~7%)
+COLOR_TEAL_TINT:      #1a595a14; // teal 8% — tinted surface
+COLOR_TEAL_BORDER:    #1a595a33; // teal 20% — brand border
+
+COLOR_RED:            #e2574c;   // errors / destructive (sparingly)
+COLOR_GREEN:          #93c088;   // "good" text
+COLOR_ORANGE:         #d9a35f;   // warning
+
+// ---- window ------------------------------------------------------------
+windowBg:                       COLOR_BG;
+windowFg:                       COLOR_FG;
+windowBgOver:                   COLOR_SURFACE_HOVER;
+windowBgRipple:                 COLOR_SURFACE_ACTIVE;
+windowFgOver:                   windowFg;
+windowSubTextFg:                COLOR_FG_SUBTLE;
+windowSubTextFgOver:            COLOR_FG_SOFT;
+windowBoldFg:                   COLOR_FG;
+windowBoldFgOver:               COLOR_FG_OVER;
+windowBgActive:                 COLOR_TEAL_MID;
+windowFgActive:                 COLOR_FG_OVER;
+windowActiveTextFg:             COLOR_TEAL_LIGHT;
+windowShadowFg:                 #00000000;
+windowShadowFgFallback:         COLOR_BG;
+shadowFg:                       #00000040;
+slideFadeOutBg:                 #0b0b0ac0;
+slideFadeOutShadowFg:           windowShadowFg;
+imageBg:                        #0b0b0a;
+imageBgTransparent:             COLOR_FG;
+
+// ---- buttons -----------------------------------------------------------
+activeButtonBg:                 COLOR_TEAL;
+activeButtonBgOver:             COLOR_TEAL_MID;
+activeButtonBgRipple:           #144748;
+activeButtonFg:                 COLOR_FG_OVER;
+activeButtonFgOver:             activeButtonFg;
+activeButtonSecondaryFg:        COLOR_TEAL_LIGHT;
+activeButtonSecondaryFgOver:    activeButtonSecondaryFg;
+activeLineFg:                   COLOR_TEAL_LIGHT;
+activeLineFgError:              COLOR_RED;
+lightButtonBg:                  COLOR_SURFACE;
+lightButtonBgOver:              COLOR_TEAL_TINT;
+lightButtonBgRipple:            COLOR_SURFACE_ACTIVE;
+lightButtonFg:                  COLOR_TEAL_LIGHT;
+lightButtonFgOver:              COLOR_CYAN;
+attentionButtonFg:              COLOR_RED;
+attentionButtonFgOver:          COLOR_RED;
+attentionButtonBgOver:          #e2574c22;
+attentionButtonBgRipple:        #e2574c33;
+outlineButtonBg:                windowBg;
+outlineButtonBgOver:            COLOR_TEAL_TINT;
+outlineButtonOutlineFg:         COLOR_TEAL_LIGHT;
+outlineButtonBgRipple:          COLOR_SURFACE_ACTIVE;
+
+// ---- menus / scroll ----------------------------------------------------
+menuBg:                         COLOR_SURFACE;
+menuBgOver:                     COLOR_TEAL_TINT;
+menuBgRipple:                   COLOR_SURFACE_ACTIVE;
+menuIconFg:                     COLOR_FG_SUBTLE;
+menuIconFgOver:                 COLOR_FG;
+menuSubmenuArrowFg:             COLOR_FG_SUBTLE;
+menuFgDisabled:                 COLOR_FG_DIM;
+menuSeparatorFg:                COLOR_BORDER;
+scrollBarBg:                    #e8e6df1f;
+scrollBarBgOver:                #88878055;
+scrollBg:                       #00000000;
+scrollBgOver:                   #e8e6df0f;
+
+// ---- misc chrome -------------------------------------------------------
+smallCloseIconFg:               COLOR_FG_SUBTLE;
+smallCloseIconFgOver:           COLOR_FG;
+radialFg:                       windowFgActive;
+radialBg:                       #0b0b0a56;
+placeholderFg:                  COLOR_FG_SUBTLE;
+placeholderFgActive:            COLOR_FG_DIM;
+inputBorderFg:                  COLOR_BORDER;
+filterInputBorderFg:            COLOR_TEAL_LIGHT;
+checkboxFg:                     COLOR_FG_SUBTLE;
+sliderBgInactive:               COLOR_SURFACE_ACTIVE;
+sliderBgActive:                 COLOR_TEAL_MID;
+tooltipBg:                      COLOR_SURFACE;
+tooltipFg:                      COLOR_FG;
+tooltipBorderFg:                COLOR_BORDER;
+titleBg:                        COLOR_BG;
+titleShadow:                    #00000000;
+titleButtonFg:                  COLOR_FG_SUBTLE;
+titleButtonBgOver:              windowBgOver;
+titleButtonFgOver:              COLOR_FG;
+titleButtonCloseBgOver:         COLOR_RED;
+titleButtonCloseFgOver:         COLOR_FG_OVER;
+titleFgActive:                  COLOR_FG;
+titleFg:                        COLOR_FG_SUBTLE;
+trayCounterBg:                  COLOR_TEAL_MID;
+trayCounterBgMute:              COLOR_FG_SUBTLE;
+trayCounterFg:                  COLOR_FG_OVER;
+trayCounterBgMacInvert:         COLOR_FG_OVER;
+trayCounterFgMacInvert:         #ffffff01;
+layerBg:                        #0000007f;
+cancelIconFg:                   menuIconFg;
+cancelIconFgOver:               menuIconFgOver;
+
+// ---- boxes / popups ----------------------------------------------------
+boxBg:                          COLOR_SURFACE;
+boxTextFg:                      COLOR_FG;
+boxTextFgGood:                  COLOR_GREEN;
+boxTextFgError:                 COLOR_RED;
+boxTitleFg:                     COLOR_FG;
+boxSearchBg:                    COLOR_BG;
+boxSearchCancelIconFg:          cancelIconFg;
+boxSearchCancelIconFgOver:      cancelIconFgOver;
+boxTitleAdditionalFg:           COLOR_FG_SUBTLE;
+boxTitleCloseFg:                cancelIconFg;
+boxTitleCloseFgOver:            cancelIconFgOver;
+membersAboutLimitFg:            windowSubTextFgOver;
+
+// ---- contacts ----------------------------------------------------------
+contactsBg:                     COLOR_SURFACE;
+contactsBgOver:                 COLOR_TEAL_TINT;
+contactsNameFg:                 boxTextFg;
+contactsStatusFg:               windowSubTextFg;
+contactsStatusFgOver:           windowSubTextFgOver;
+contactsStatusFgOnline:         COLOR_CYAN;
+
+// ---- photo crop / intro ------------------------------------------------
+photoCropFadeBg:                layerBg;
+photoCropPointFg:               #ffffff7f;
+introBg:                        COLOR_BG;
+introTitleFg:                   COLOR_FG;
+introDescriptionFg:             COLOR_FG_SUBTLE;
+introErrorFg:                   COLOR_RED;
+introCoverTopBg:                COLOR_TEAL;
+introCoverBottomBg:             COLOR_TEAL_MID;
+introCoverIconsFg:              COLOR_TEAL_LIGHT;
+introCoverPlaneTrace:           #3bb8ba69;
+introCoverPlaneInner:           #1a3f3f;
+introCoverPlaneOuter:           COLOR_TEAL;
+introCoverPlaneTop:             COLOR_TEAL_LIGHT;
+
+// ---- chats list --------------------------------------------------------
+dialogsMenuIconFg:              menuIconFg;
+dialogsMenuIconFgOver:          menuIconFgOver;
+dialogsBg:                      COLOR_BG;
+dialogsNameFg:                  COLOR_FG;
+dialogsChatIconFg:              COLOR_FG_SUBTLE;
+dialogsDateFg:                  COLOR_FG_SUBTLE;
+dialogsTextFg:                  COLOR_FG_SUBTLE;
+dialogsTextFgService:           COLOR_TEAL_LIGHT;
+dialogsDraftFg:                 COLOR_RED;
+dialogsVerifiedIconBg:          COLOR_CYAN;
+dialogsVerifiedIconFg:          COLOR_BG;
+dialogsSendingIconFg:           COLOR_FG_DIM;
+dialogsSentIconFg:              COLOR_TEAL_LIGHT;
+dialogsUnreadBg:                COLOR_TEAL_MID;
+dialogsUnreadBgMuted:           COLOR_SURFACE_MAX;
+dialogsUnreadFg:                COLOR_FG_OVER;
+dialogsBgOver:                  COLOR_SURFACE_HOVER;
+dialogsNameFgOver:              COLOR_FG_OVER;
+dialogsChatIconFgOver:          COLOR_FG;
+dialogsDateFgOver:              COLOR_FG;
+dialogsTextFgOver:              COLOR_FG_SOFT;
+dialogsTextFgServiceOver:       dialogsTextFgService;
+dialogsDraftFgOver:             dialogsDraftFg;
+dialogsVerifiedIconBgOver:      dialogsVerifiedIconBg;
+dialogsVerifiedIconFgOver:      dialogsVerifiedIconFg;
+dialogsSendingIconFgOver:       dialogsSendingIconFg;
+dialogsSentIconFgOver:          dialogsSentIconFg;
+dialogsUnreadBgOver:            dialogsUnreadBg;
+dialogsUnreadBgMutedOver:       dialogsUnreadBgMuted;
+dialogsUnreadFgOver:            dialogsUnreadFg;
+dialogsBgActive:                COLOR_TEAL_TINT;
+dialogsNameFgActive:            COLOR_FG_OVER;
+dialogsChatIconFgActive:        COLOR_TEAL_LIGHT;
+dialogsDateFgActive:            COLOR_FG;
+dialogsTextFgActive:            COLOR_FG_SOFT;
+dialogsTextFgServiceActive:     COLOR_TEAL_LIGHT;
+dialogsDraftFgActive:           COLOR_RED;
+dialogsVerifiedIconBgActive:    COLOR_CYAN;
+dialogsVerifiedIconFgActive:    COLOR_BG;
+dialogsSendingIconFgActive:     COLOR_FG_DIM;
+dialogsSentIconFgActive:        COLOR_TEAL_LIGHT;
+dialogsUnreadBgActive:          COLOR_TEAL_MID;
+dialogsUnreadBgMutedActive:     COLOR_SURFACE_MAX;
+dialogsUnreadFgActive:          COLOR_FG_OVER;
+dialogsForwardBg:               COLOR_SURFACE;
+dialogsForwardFg:               COLOR_FG;
+searchedBarBg:                  COLOR_SURFACE;
+searchedBarBorder:              COLOR_BORDER;
+searchedBarFg:                  COLOR_FG_SUBTLE;
+topBarBg:                       COLOR_BG;
+
+// ---- emoji / stickers --------------------------------------------------
+emojiPanBg:                     COLOR_SURFACE;
+emojiPanCategories:             COLOR_BG;
+emojiPanHeaderFg:               COLOR_FG_SUBTLE;
+emojiPanHeaderBg:               #1a1a18f2;
+stickerPanDeleteBg:             #0b0b0acc;
+stickerPanDeleteFg:             COLOR_FG_OVER;
+stickerPreviewBg:               #111110b0;
+
+// ---- message history text ---------------------------------------------
+historyTextInFg:                COLOR_FG;
+historyTextOutFg:               COLOR_FG;
+historyCaptionInFg:             historyTextInFg;
+historyCaptionOutFg:            historyTextOutFg;
+historyFileNameInFg:            historyTextInFg;
+historyFileNameOutFg:           historyTextOutFg;
+historyOutIconFg:               COLOR_TEAL_LIGHT;
+historyOutIconFgSelected:       COLOR_CYAN;
+historyIconFgInverted:          COLOR_BG;
+historySendingOutIconFg:        COLOR_FG_SUBTLE;
+historySendingInIconFg:         COLOR_FG_DIM;
+historySendingInvertedIconFg:   #e8e6dfc8;
+historySystemBg:                #1a595a7f;
+historySystemBgSelected:        #2e7f80a2;
+historySystemFg:                COLOR_FG_OVER;
+historyUnreadBarBg:             COLOR_SURFACE;
+historyUnreadBarBorder:         COLOR_BORDER;
+historyUnreadBarFg:             COLOR_TEAL_LIGHT;
+historyForwardChooseBg:         #0000004c;
+historyForwardChooseFg:         COLOR_FG_OVER;
+
+// ---- peer name / userpic colors (teal + neutral only, no purple) ------
+historyPeer1NameFg:             COLOR_TEAL_LIGHT;
+historyPeer1UserpicBg:          #1a595a;
+historyPeer2NameFg:             COLOR_CYAN;
+historyPeer2UserpicBg:          #2e7f80;
+historyPeer3NameFg:             COLOR_TEAL_LIGHT;
+historyPeer3UserpicBg:          #276f70;
+historyPeer4NameFg:             COLOR_FG;
+historyPeer4UserpicBg:          #144748;
+historyPeer5NameFg:             COLOR_FG_SOFT;
+historyPeer5UserpicBg:          #3a5f5f;
+historyPeer6NameFg:             COLOR_FG_SUBTLE;
+historyPeer6UserpicBg:          #4a4a47;
+historyPeer7NameFg:             COLOR_TEAL_LIGHT;
+historyPeer7UserpicBg:          #215f60;
+historyPeer8NameFg:             COLOR_FG;
+historyPeer8UserpicBg:          #5c5c58;
+historyPeerUserpicFg:           COLOR_FG_OVER;
+historyScrollBarBg:             #e8e6df1f;
+historyScrollBarBgOver:         #88878055;
+historyScrollBg:                #00000000;
+historyScrollBgOver:            #e8e6df0f;
+
+// ---- message bubbles ---------------------------------------------------
+msgInBg:                        COLOR_SURFACE;
+msgInBgSelected:                #2e7f8033;
+msgOutBg:                       #1a595a33;
+msgOutBgSelected:               #2e7f8055;
+msgSelectOverlay:               #3bb8ba4c;
+msgStickerOverlay:              #3bb8ba7f;
+msgInServiceFg:                 COLOR_TEAL_LIGHT;
+msgInServiceFgSelected:         COLOR_CYAN;
+msgOutServiceFg:                COLOR_TEAL_LIGHT;
+msgOutServiceFgSelected:        COLOR_CYAN;
+msgInShadow:                    #00000000;
+msgInShadowSelected:            #00000000;
+msgOutShadow:                   #00000000;
+msgOutShadowSelected:           #00000000;
+msgInDateFg:                    COLOR_FG_SUBTLE;
+msgInDateFgSelected:            COLOR_FG_SOFT;
+msgOutDateFg:                   COLOR_TEAL_LIGHT;
+msgOutDateFgSelected:           COLOR_CYAN;
+msgServiceFg:                   COLOR_FG_OVER;
+msgServiceBg:                   #1a595a7f;
+msgServiceBgSelected:           #2e7f80a2;
+msgInReplyBarColor:             COLOR_TEAL_LIGHT;
+msgInReplyBarSelColor:          COLOR_CYAN;
+msgOutReplyBarColor:            COLOR_TEAL_LIGHT;
+msgOutReplyBarSelColor:         COLOR_CYAN;
+msgImgReplyBarColor:            msgServiceFg;
+msgInMonoFg:                    COLOR_TEAL_LIGHT;
+msgOutMonoFg:                   COLOR_CYAN;
+msgDateImgFg:                   COLOR_FG_OVER;
+msgDateImgBg:                   #00000054;
+msgDateImgBgOver:               #00000074;
+msgDateImgBgSelected:           #0d3334cc;
+msgFileThumbLinkInFg:           COLOR_TEAL_LIGHT;
+msgFileThumbLinkInFgSelected:   COLOR_CYAN;
+msgFileThumbLinkOutFg:          COLOR_TEAL_LIGHT;
+msgFileThumbLinkOutFgSelected:  COLOR_CYAN;
+msgFileInBg:                    COLOR_TEAL_MID;
+msgFileInBgOver:                COLOR_TEAL_LIGHT;
+msgFileInBgSelected:            COLOR_CYAN;
+msgFileOutBg:                   COLOR_TEAL;
+msgFileOutBgOver:               COLOR_TEAL_MID;
+msgFileOutBgSelected:           COLOR_TEAL_LIGHT;
+msgFile1Bg:                     #1a595a;
+msgFile1BgDark:                 #144748;
+msgFile1BgOver:                 #2e7f80;
+msgFile1BgSelected:             #3bb8ba;
+msgFile2Bg:                     #276f70;
+msgFile2BgDark:                 #215f60;
+msgFile2BgOver:                 #2e7f80;
+msgFile2BgSelected:             #3bb8ba;
+msgFile3Bg:                     #3bb8ba;
+msgFile3BgDark:                 #2e7f80;
+msgFile3BgOver:                 #00d1d4;
+msgFile3BgSelected:             #00d1d4;
+msgFile4Bg:                     #215f60;
+msgFile4BgDark:                 #1a595a;
+msgFile4BgOver:                 #276f70;
+msgFile4BgSelected:             #2e7f80;
+msgWaveformInActive:            COLOR_TEAL_LIGHT;
+msgWaveformInActiveSelected:    COLOR_CYAN;
+msgWaveformInInactive:          COLOR_SURFACE_ACTIVE;
+msgWaveformInInactiveSelected:  #2e7f8066;
+msgWaveformOutActive:           COLOR_TEAL_LIGHT;
+msgWaveformOutActiveSelected:   COLOR_CYAN;
+msgWaveformOutInactive:         #1a595a80;
+msgWaveformOutInactiveSelected: #2e7f80aa;
+msgBotKbOverBgAdd:              #e8e6df20;
+msgBotKbIconFg:                 msgServiceFg;
+msgBotKbRippleBg:               #e8e6df20;
+mediaInFg:                      msgInDateFg;
+mediaInFgSelected:              msgInDateFgSelected;
+mediaOutFg:                     msgOutDateFg;
+mediaOutFgSelected:             msgOutDateFgSelected;
+
+// ---- media / video -----------------------------------------------------
+youtubePlayIconBg:              #e2574cc8;
+youtubePlayIconFg:              COLOR_FG_OVER;
+videoPlayIconBg:                #0b0b0a7f;
+videoPlayIconFg:                COLOR_FG_OVER;
+toastBg:                        #0b0b0ab2;
+toastFg:                        COLOR_FG_OVER;
+reportSpamBg:                   emojiPanHeaderBg;
+reportSpamFg:                   COLOR_FG;
+historyToDownShadow:            #00000040;
+
+// ---- compose area ------------------------------------------------------
+historyComposeAreaBg:           COLOR_SURFACE;
+historyComposeAreaFg:           COLOR_FG;
+historyComposeAreaFgService:    COLOR_FG_SUBTLE;
+historyComposeIconFg:           COLOR_FG_SUBTLE;
+historyComposeIconFgOver:       COLOR_FG;
+historySendIconFg:              COLOR_TEAL_LIGHT;
+historySendIconFgOver:          COLOR_CYAN;
+historyPinnedBg:                COLOR_SURFACE;
+historyReplyBg:                 COLOR_SURFACE;
+historyReplyCancelFg:           COLOR_FG_SUBTLE;
+historyReplyCancelFgOver:       COLOR_FG;
+historyComposeButtonBg:         COLOR_SURFACE;
+historyComposeButtonBgOver:     COLOR_TEAL_TINT;
+historyComposeButtonBgRipple:   COLOR_SURFACE_ACTIVE;
+
+// ---- misc media / overlays --------------------------------------------
+overviewCheckBg:                #00000040;
+overviewCheckFg:                COLOR_FG_OVER;
+overviewCheckFgActive:          COLOR_FG_OVER;
+overviewPhotoSelectOverlay:     #00d1d433;
+profileStatusFgOver:            COLOR_FG_SOFT;
+notificationsBoxMonitorFg:      COLOR_FG;
+notificationsBoxScreenBg:       COLOR_TEAL;
+notificationSampleUserpicFg:    COLOR_TEAL_LIGHT;
+notificationSampleCloseFg:      COLOR_FG_SUBTLE;
+notificationSampleTextFg:       COLOR_FG_SUBTLE;
+notificationSampleNameFg:       COLOR_FG;
+mainMenuBg:                     COLOR_SURFACE;
+mainMenuCoverBg:                COLOR_TEAL;
+mainMenuCoverFg:                COLOR_FG_OVER;
+mediaPlayerBg:                  COLOR_BG;
+mediaPlayerActiveFg:            COLOR_TEAL_LIGHT;
+mediaPlayerInactiveFg:          COLOR_SURFACE_ACTIVE;
+mediaPlayerDisabledFg:          COLOR_FG_DIM;
+mediaviewFileBg:                COLOR_SURFACE;
+mediaviewFileNameFg:            COLOR_FG;
+mediaviewFileSizeFg:            COLOR_FG_SUBTLE;
+mediaviewFileRedCornerFg:       COLOR_RED;
+mediaviewFileYellowCornerFg:    COLOR_ORANGE;
+mediaviewFileGreenCornerFg:     COLOR_GREEN;
+mediaviewFileBlueCornerFg:      COLOR_TEAL_LIGHT;
+mediaviewFileExtFg:             COLOR_FG_OVER;
+mediaviewMenuBg:                COLOR_SURFACE;
+mediaviewMenuBgOver:            COLOR_SURFACE_HOVER;
+mediaviewMenuBgRipple:          COLOR_SURFACE_ACTIVE;
+mediaviewMenuFg:                COLOR_FG;
+mediaviewBg:                    #111110eb;
+mediaviewVideoBg:               #0b0b0a;
+mediaviewControlBg:             #0000003c;
+mediaviewControlFg:             COLOR_FG_OVER;
+mediaviewCaptionBg:             #0b0b0a80;
+mediaviewCaptionFg:             mediaviewControlFg;
+mediaviewTextLinkFg:            COLOR_TEAL_LIGHT;
+mediaviewSaveMsgBg:             toastBg;
+mediaviewSaveMsgFg:             toastFg;
+mediaviewPlaybackActive:        COLOR_TEAL_LIGHT;
+mediaviewPlaybackInactive:      COLOR_SURFACE_ACTIVE;
+mediaviewPlaybackActiveOver:    COLOR_CYAN;
+mediaviewPlaybackInactiveOver:  COLOR_FG_DIM;
+mediaviewPlaybackProgressFg:    #e8e6dfc7;
+mediaviewPlaybackIconFg:        mediaviewPlaybackActive;
+mediaviewPlaybackIconFgOver:    mediaviewPlaybackActiveOver;
+mediaviewTransparentBg:         #0b0b0a;
+mediaviewTransparentFg:         COLOR_FG_SUBTLE;
+
+// ---- notifications -----------------------------------------------------
+notificationBg:                 COLOR_SURFACE;

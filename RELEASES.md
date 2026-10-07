@@ -17,6 +17,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `coderkrow` theme for herdr (`herdr/config.toml`) with install notes
   (`herdr/INSTALL.md`): `theme.custom` token overrides, dark default plus
   optional light auto-switch.
+- `coderkrow dark` theme for Telegram Desktop
+  (`telegram/theme/coderkrow-dark.tdesktop-theme`) with install notes
+  (`telegram/theme/INSTALL.md`): dark-only, teal selection and outgoing
+  bubbles, cyan active states.
 
 ## [0.1.0] - 2026-09-23
 
