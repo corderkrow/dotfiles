@@ -4,6 +4,10 @@
 # built-in theme (`theme.name`) plus token overrides under `[theme.custom]`,
 # all inside ~/.config/herdr/config.toml.
 #
+# Dark variant. `config-light.toml` is the pinned light counterpart: same
+# keys, light tokens as the shared block, dark tokens under
+# `[theme.custom.dark]`. Keep the two light token sets in sync.
+#
 # Palette: #111110 / #e8e6df / #1a595a / #00d1d4
 # Rules:   .ai/rules/brand/RULES.md
 # ---------------------------------------------------------------------------
@@ -58,10 +62,10 @@ text          = "#1d1d1b"   # ink
 subtext0      = "#4a4a47"   # muted
 accent        = "#1a595a"   # deep teal on light ground
 mauve         = "#2e7f80"
-green         = "#2e7f80"
+green         = "#1f7a56"   # success states
 yellow        = "#8a7030"
 red           = "#a83a32"
-blue          = "#1a595a"
+blue          = "#1f6b8f"
 teal          = "#007b7d"
 peach         = "#8a7030"
 

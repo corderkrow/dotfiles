@@ -25,7 +25,8 @@ Built for Pop!_OS / Linux. MIT licensed. Contributions welcome.
   Oh My Zsh + Starship prompt.
 - **Consistent theme:** `coderkrow dark` palette (`#111110` / `#e8e6df` /
   `#1a595a` / `#00d1d4`) applied to Ghostty, Starship, Zed, opencode,
-  herdr, COSMIC desktop, and Telegram Desktop.
+  herdr, COSMIC desktop, and Telegram Desktop; COSMIC, Zed, Ghostty, and
+  herdr also ship a `coderkrow light` variant (`#f5f4f0` / `#1d1d1b`).
 - **Dev-ready prompt:** Starship powerline with OS, user, directory,
   git branch/status, language runtimes (C, C++, Rust, Go, Node, PHP,
   Java, Kotlin, Haskell, Python), Docker / Conda / Pixi contexts, and time.
@@ -34,19 +35,22 @@ Built for Pop!_OS / Linux. MIT licensed. Contributions welcome.
 
 ```text
 .
-├── cosmic/                  # COSMIC desktop theme (coderkrow-dark.ron + INSTALL.md)
+├── cosmic/                  # COSMIC desktop themes (dark + light .ron, INSTALL.md)
 ├── ghostty/
-│   ├── coderkrow             # Ghostty theme + font / window defaults
+│   ├── coderkrow.conf        # Ghostty theme + font / window defaults (dark)
+│   ├── coderkrow-light.conf  # Ghostty theme (light)
 │   └── INSTALL.md            # Ghostty install notes
 ├── herdr/
-│   ├── config.toml          # herdr custom theme (coderkrow)
+│   ├── config.toml          # herdr custom theme (dark variant)
+│   ├── config-light.toml    # herdr custom theme (light variant)
 │   └── INSTALL.md           # herdr install notes
 ├── starship/
 │   ├── starship.toml         # Starship powerline prompt (coderkrow_dark palette)
 │   └── INSTALL.md            # Starship install notes
 ├── zed/
 │   └── theme/
-│       ├── coderkrow-dark.json  # Zed theme (dark-only)
+│       ├── coderkrow-dark.json  # Zed theme (dark)
+│       ├── coderkrow-light.json # Zed theme (light)
 │       └── INSTALL.md           # Zed install notes
 ├── opencode/
 │   ├── themes/
@@ -120,24 +124,28 @@ terminal configuration reference.
    mkdir -p ~/.config
    ln -sf ~/dotfiles/starship/starship.toml ~/.config/starship.toml
 
-   # Ghostty — coderkrow theme
+   # Ghostty — coderkrow themes (dark + light)
    mkdir -p ~/.config/ghostty
-   cp ~/dotfiles/ghostty/coderkrow ~/.config/ghostty/themes/coderkrow
-   # then set `theme = coderkrow` in ~/.config/ghostty/config
+   cp ~/dotfiles/ghostty/coderkrow.conf       ~/.config/ghostty/themes/coderkrow
+   cp ~/dotfiles/ghostty/coderkrow-light.conf ~/.config/ghostty/themes/coderkrow-light
+   # installed name (no extension) = theme name:
+   # `theme = coderkrow` (or `coderkrow-light`, or
+   # `theme = light:coderkrow-light,dark:coderkrow`) in ~/.config/ghostty/config
 
-   # Zed theme
+   # Zed themes (dark + light)
    mkdir -p ~/.config/zed/themes
-   cp ~/dotfiles/zed/theme/coderkrow-dark.json ~/.config/zed/themes/
-   # Zed: theme selector → `coderkrow dark`
+   cp ~/dotfiles/zed/theme/coderkrow-*.json ~/.config/zed/themes/
+   # Zed: theme selector → `coderkrow dark` or `coderkrow light`
 
-   # herdr theme
+   # herdr theme (dark or light variant)
    mkdir -p ~/.config/herdr
-   ln -sf ~/dotfiles/herdr/config.toml ~/.config/herdr/config.toml
+   ln -sf ~/dotfiles/herdr/config.toml       ~/.config/herdr/config.toml  # dark
+   ln -sf ~/dotfiles/herdr/config-light.toml ~/.config/herdr/config.toml  # light
    # see herdr/INSTALL.md; then: herdr server reload-config
 
-   # COSMIC theme
-   # Import cosmic/coderkrow-dark.ron via COSMIC Settings → Appearance,
-   # or copy to your COSMIC themes directory.
+   # COSMIC theme (dark + light variants)
+   # Import cosmic/coderkrow-dark.ron and cosmic/coderkrow-light.ron via
+   # COSMIC Settings → Appearance, or copy to your COSMIC themes directory.
 
    # Telegram Desktop theme
    # Settings → Chat Settings → Theme → folder icon → import
@@ -173,17 +181,24 @@ All themes share one palette — dark background `#111110`, surface
 `#1a1a18`, foreground `#e8e6df`, teal accents `#1a595a` / `#2e7f80` /
 `#3bb8ba` / `#00d1d4`:
 
-- **Ghostty:** `ghostty/coderkrow` — 16-color ANSI palette, cyan cursor,
-  teal selection.
+- **Ghostty:** `ghostty/coderkrow.conf` + `ghostty/coderkrow-light.conf` — 16-color
+  ANSI palette, cyan cursor and teal selection in dark; deep teal cursor
+  and teal-tint selection in light. See `ghostty/INSTALL.md`.
 - **Starship:** `starship/starship.toml` — `coderkrow_dark` palette with
   gruvbox fallback, powerline glyphs.
-- **Zed:** `zed/theme/coderkrow-dark.json` — dark-only, flat borders,
-  cyan keywords, teal strings, italic muted comments.
+- **Zed:** `zed/theme/coderkrow-dark.json` +
+  `zed/theme/coderkrow-light.json` — flat borders, teal keywords, teal
+  strings, italic muted comments; cyan keywords in dark, deep teal in
+  light. See `zed/theme/INSTALL.md`.
 - **opencode:** `opencode/themes/coderkrow.json` — matching TUI theme.
-- **herdr:** `herdr/config.toml` — `theme.custom` token overrides on a
-  built-in base; dark-only with an optional light auto-switch. See
-  `herdr/INSTALL.md`.
-- **COSMIC:** `cosmic/coderkrow-dark.ron` — desktop theme.
+- **herdr:** `herdr/config.toml` + `herdr/config-light.toml` —
+  `theme.custom` token overrides on a built-in base; one file per variant,
+  each carrying the other appearance for `auto_switch`. Signal cyan is
+  fills-only on the light ground; `teal`/`blue` drop to `#007b7d` /
+  `#1f6b8f` for text. See `herdr/INSTALL.md`.
+- **COSMIC:** `cosmic/coderkrow-dark.ron` + `cosmic/coderkrow-light.ron`
+  — desktop themes; the light file inverts only the neutral ramp and
+  ground, teal and cyan stay identical. See `cosmic/INSTALL.md`.
 - **Telegram Desktop:** `telegram/theme/coderkrow-dark.tdesktop-theme` —
   dark-only palette, teal selection and outgoing bubbles, cyan active
   states, flat surfaces. See `telegram/theme/INSTALL.md`.
