@@ -39,14 +39,22 @@ Dotfiles have no test suite; verification is manual:
 
 - Shell / prompt: symlink or copy the changed file, reload (`source ~/.zshrc`),
   confirm startup time and prompt segments.
-- Ghostty: copy `ghostty/coderkrow` to `~/.config/ghostty/themes/coderkrow`,
-  set `theme = coderkrow`, restart Ghostty.
+- Ghostty: install `ghostty/coderkrow.conf` (dark) or
+  `ghostty/coderkrow-light.conf` (light) as
+  `~/.config/ghostty/themes/coderkrow` / `.../coderkrow-light` (drop the
+  extension — the installed name is the theme name), set `theme = coderkrow` /
+  `theme = coderkrow-light`, restart Ghostty; `ghostty +validate-config
+  --config-file=ghostty/coderkrow-light.conf` validates the file.
 - Starship: `ln -sf ~/dotfiles/starship/starship.toml ~/.config/starship.toml`,
   open a git repo and check segments.
-- Zed: copy `zed/theme/coderkrow-dark.json` to `~/.config/zed/themes/`,
-  select `coderkrow dark` in Zed.
-- herdr: `ln -sf ~/dotfiles/herdr/config.toml ~/.config/herdr/config.toml`,
-  then `herdr server reload-config` (see `herdr/INSTALL.md`).
+- Zed: copy `zed/theme/coderkrow-dark.json` and
+  `zed/theme/coderkrow-light.json` to `~/.config/zed/themes/`, then select
+  `coderkrow dark` or `coderkrow light` in Zed.
+- herdr: `ln -sf ~/dotfiles/herdr/config.toml ~/.config/herdr/config.toml`
+  (dark) or `ln -sf ~/dotfiles/herdr/config-light.toml
+  ~/.config/herdr/config.toml` (light), then
+  `herdr server reload-config`; `herdr config check` validates the
+  result (see `herdr/INSTALL.md`).
 - COSMIC: import `cosmic/coderkrow-dark.ron` via Settings → Appearance.
 
 Do not commit secrets, tokens, machine-specific paths, or history files.
@@ -55,7 +63,9 @@ Do not commit secrets, tokens, machine-specific paths, or history files.
 
 - Match the `coderkrow dark` palette: background `#111110`, surface
   `#1a1a18`, foreground `#e8e6df`, teal accents `#1a595a` / `#2e7f80` /
-  `#3bb8ba` / `#00d1d4`.
+  `#3bb8ba` / `#00d1d4`. The light variant uses ground `#f5f4f0`, surface
+  `#faf9f6`, ink `#1d1d1b`, the same teals, and deep teal `#1a595a` for
+  code that would be cyan in dark.
 - Flat theme style only: no gradients, no extra accent colors.
 - Mirror palette changes across Ghostty, Starship, Zed, opencode, herdr,
   and COSMIC where applicable.

@@ -17,6 +17,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `coderkrow` theme for herdr (`herdr/config.toml`) with install notes
   (`herdr/INSTALL.md`): `theme.custom` token overrides, dark default plus
   optional light auto-switch.
+- `coderkrow light` variant for herdr (`herdr/config-light.toml`):
+  light-first config on `catppuccin-latte` with the dark tokens under
+  `[theme.custom.dark]`; cyan drops to `teal` `#007b7d` / `blue`
+  `#1f6b8f` at text weight.
+- `coderkrow light` variant for Ghostty (`ghostty/coderkrow-light.conf`):
+  warm off-white ground `#f5f4f0`, ink `#1d1d1b`, deep-teal cursor and
+  teal-tint selection; ANSI slots keep the dark file's hue mapping at
+  light-legible steps, signal cyan stays out of the palette at 1.72:1.
 - `coderkrow dark` theme for Telegram Desktop
   (`telegram/theme/coderkrow-dark.tdesktop-theme`) with install notes
   (`telegram/theme/INSTALL.md`): dark-only, teal selection and outgoing
@@ -30,7 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   install notes.
 - Starship powerline config (`starship/starship.toml`) with
   `coderkrow_dark` palette, git / runtime / container segments.
-- Ghostty `coderkrow` theme (`ghostty/coderkrow`): dark background,
+- Ghostty `coderkrow` theme (`ghostty/coderkrow.conf`): dark background,
   16-color ANSI palette, JetBrains Mono default.
 - COSMIC desktop theme (`cosmic/coderkrow-dark.ron`).
 - opencode agent config (`opencode.json`) and `coderkrow` TUI theme

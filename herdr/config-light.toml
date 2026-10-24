@@ -1,0 +1,74 @@
+# coderkrow — herdr theme (light)
+# ---------------------------------------------------------------------------
+# Light counterpart of `config.toml`. Herdr has no external theme-file
+# directory. A "custom theme" is a base built-in theme (`theme.name`) plus
+# token overrides under `[theme.custom]`, all inside
+# ~/.config/herdr/config.toml — symlink this file there to pin light.
+#
+# Palette: #f5f4f0 / #1d1d1b / #1a595a / #2e7f80
+# Rules:   .ai/rules/brand/RULES.md
+# ---------------------------------------------------------------------------
+
+[theme]
+# Light base. The custom tokens below repaint it to coderkrow light.
+name = "catppuccin-latte"
+
+# Optional light/dark auto-switching. Enable all three lines to follow the
+# host terminal appearance; the [theme.custom.dark] block below then applies
+# on a dark host.
+# auto_switch = true
+# dark_name  = "catppuccin"
+# light_name = "catppuccin-latte"
+
+# Shared (default / light) brand tokens. Only expose the three dominant
+# coderkrow colors on large surfaces: ink, teal, off-white. The teal and
+# cyan hues are the same as the dark variant — only the ground and the
+# neutral steps invert.
+[theme.custom]
+panel_bg      = "#f5f4f0"   # warm off-white ground (never #fff)
+sidebar_bg    = "#f5f4f0"   # desktop sidebar ground
+active_row_bg = "#dcebeb"   # focused Space / Agent row — teal tint
+selection_bg  = "#c3dede"   # Navigate-mode cursor row — stronger teal tint
+surface0      = "#eceae4"   # element fill, one step below the ground
+surface1      = "#e0ddd5"   # hover / borders
+surface_dim   = "#faf9f6"   # elevated surface
+overlay0      = "#8a8a83"   # faint text / separators
+overlay1      = "#6a6a63"   # muted metadata
+text          = "#1d1d1b"   # ink (never #000)
+subtext0      = "#4a4a47"   # secondary text
+accent        = "#1a595a"   # interactive highlights, borders, navigation
+mauve         = "#2e7f80"   # secondary accent (mid teal)
+green         = "#1f7a56"   # success states
+yellow        = "#8a7030"   # warnings / needs-input
+red           = "#a83a32"   # errors / destructive
+blue          = "#1f6b8f"   # info / links
+teal          = "#007b7d"   # brand teal at text weight
+peach         = "#8a7030"   # warm highlight
+
+# Dark brand tokens. Applied only when `auto_switch` selects a dark
+# appearance. Mirrors `config.toml`; keep the two files in sync.
+[theme.custom.dark]
+panel_bg      = "#111110"   # near-black ground (never #000)
+sidebar_bg    = "#111110"   # desktop sidebar ground
+active_row_bg = "#1a595a"   # focused Space / Agent row — brand teal
+selection_bg  = "#144748"   # Navigate-mode cursor row — deep teal
+surface0      = "#20201f"   # raised surface
+surface1      = "#3a3a36"   # higher surface / borders
+surface_dim   = "#0b0b0a"   # recessed surface
+overlay0      = "#5c5c58"   # faint text / separators
+overlay1      = "#888780"   # muted metadata
+text          = "#e8e6df"   # warm off-white (never #fff)
+subtext0      = "#b8b6ae"   # secondary text
+accent        = "#3bb8ba"   # interactive highlights, borders, navigation
+mauve         = "#2e7f80"   # secondary accent (deep teal)
+green         = "#93c088"   # success states
+yellow        = "#d9a35f"   # warnings / needs-input
+red           = "#e2574c"   # errors / destructive
+blue          = "#00d1d4"   # info / links — signal cyan
+teal          = "#00d1d4"   # signal cyan
+peach         = "#c08c4c"   # warm highlight
+
+[ui]
+# Herdr's own accent (highlights, borders, navigation). Matches
+# theme.custom.accent; keep both in sync when tweaking.
+accent = "#1a595a"
